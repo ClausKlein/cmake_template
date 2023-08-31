@@ -33,8 +33,8 @@
                 "strategy": "external"
             },
             "cacheVariables": {
-                "ENABLE_CPPCHECK_DEFAULT": "FALSE",
-                "ENABLE_CLANG_TIDY_DEFAULT": "FALSE"
+                "ENABLE_CPPCHECK_DEFAULT": false,
+                "ENABLE_CLANG_TIDY_DEFAULT": false
             }
         },
         {
@@ -68,7 +68,7 @@
                 "CMAKE_C_COMPILER": "cl",
                 "CMAKE_CXX_COMPILER": "cl",
                 "CMAKE_BUILD_TYPE": "Debug",
-                "ENABLE_DEVELOPER_MODE": "ON"
+                "ENABLE_DEVELOPER_MODE": true
             }
         },
         {
@@ -80,7 +80,7 @@
                 "CMAKE_C_COMPILER": "cl",
                 "CMAKE_CXX_COMPILER": "cl",
                 "CMAKE_BUILD_TYPE": "RelWithDebInfo",
-                "ENABLE_DEVELOPER_MODE": "ON"
+                "ENABLE_DEVELOPER_MODE": true
             }
         },
         {
@@ -92,7 +92,7 @@
                 "CMAKE_C_COMPILER": "cl",
                 "CMAKE_CXX_COMPILER": "cl",
                 "CMAKE_BUILD_TYPE": "Debug",
-                "ENABLE_DEVELOPER_MODE": "OFF"
+                "ENABLE_DEVELOPER_MODE": true
             }
         },
         {
@@ -104,7 +104,7 @@
                 "CMAKE_C_COMPILER": "cl",
                 "CMAKE_CXX_COMPILER": "cl",
                 "CMAKE_BUILD_TYPE": "RelWithDebInfo",
-                "ENABLE_DEVELOPER_MODE": "OFF"
+                "ENABLE_DEVELOPER_MODE": true
             }
         },
         {
@@ -145,7 +145,7 @@
             "description": "Target Unix-like OS with the gcc compiler, debug build type",
             "inherits": "conf-unixlike-common",
             "cacheVariables": {
-                "myproject_ENABLE_COVERAGE": false,
+                "myproject_ENABLE_COVERAGE": true,
                 "CMAKE_SKIP_INSTALL_RULES": true,
                 "CMAKE_C_COMPILER": "gcc",
                 "CMAKE_CXX_COMPILER": "g++",
@@ -169,7 +169,7 @@
             "description": "Target Unix-like OS with the clang compiler, debug build type",
             "inherits": "conf-unixlike-common",
             "cacheVariables": {
-                "myproject_ENABLE_COVERAGE": false,
+                "myproject_ENABLE_COVERAGE": true,
                 "CMAKE_SKIP_INSTALL_RULES": true,
                 "CMAKE_C_COMPILER": "clang",
                 "CMAKE_CXX_COMPILER": "clang++",
