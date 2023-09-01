@@ -40,7 +40,7 @@ This will allow you to create a new repository in your Github account,
 prepopulated with the contents of this project.
 
 After creating the project please wait until the cleanup workflow has finished 
-setting up your project and commited the changes.
+setting up your project and committed the changes.
 
 Now you can clone the project locally and get to work!
 

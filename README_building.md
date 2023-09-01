@@ -23,7 +23,7 @@ CMake uses the environment variables CC and CXX to decide which compiler to use.
 
 	- Temporarily (only for the current shell)
 
-		Run one of the followings in the terminal:
+		Run one of the following in the terminal:
 
 		- clang
 
@@ -50,7 +50,7 @@ CMake uses the environment variables CC and CXX to decide which compiler to use.
 
 	- Permanent:
 
-		Run one of the followings in PowerShell:
+		Run one of the following in PowerShell:
 
 		- Visual Studio generator and compiler (cl)
 
