@@ -5,7 +5,7 @@ cmake_minimum_required(VERSION 3.21...3.27)
 # manual dependency management
 
 # Only set the cxx_standard if it is not set by someone else
-if (NOT DEFINED CMAKE_CXX_STANDARD)
+if(NOT DEFINED CMAKE_CXX_STANDARD)
   set(CMAKE_CXX_STANDARD 20)
 endif()
 
@@ -24,7 +24,6 @@ project(
 
 include(cmake/PreventInSourceBuilds.cmake)
 include(ProjectOptions.cmake)
-
 
 myproject_setup_options()
 
@@ -66,20 +65,22 @@ if(NOT PROJECT_IS_TOP_LEVEL)
 endif()
 
 # Adding the tests:
-include(CTest)
+# TODO(CK): NO! this add too match targets: include(CTest)
 
+option(BUILD_TESTING "Enable testing" ON)
 if(BUILD_TESTING)
   message(AUTHOR_WARNING "Building Tests. Be sure to check out test/constexpr_tests.cpp for constexpr testing")
+  enable_testing()
+
   add_subdirectory(test)
-endif()
 
-
-if(myproject_BUILD_FUZZ_TESTS)
-  message(AUTHOR_WARNING "Building Fuzz Tests, using fuzzing sanitizer https://www.llvm.org/docs/LibFuzzer.html")
-  if (NOT myproject_ENABLE_ADDRESS_SANITIZER AND NOT myproject_ENABLE_THREAD_SANITIZER)
-    message(WARNING "You need asan or tsan enabled for meaningful fuzz testing")
+  if(myproject_BUILD_FUZZ_TESTS)
+    message(AUTHOR_WARNING "Building Fuzz Tests, using fuzzing sanitizer https://www.llvm.org/docs/LibFuzzer.html")
+    if(NOT myproject_ENABLE_ADDRESS_SANITIZER AND NOT myproject_ENABLE_THREAD_SANITIZER)
+      message(WARNING "You need asan or tsan enabled for meaningful fuzz testing")
+    endif()
+    add_subdirectory(fuzz_test)
   endif()
-  add_subdirectory(fuzz_test)
 
 endif()
 
