@@ -25,20 +25,21 @@ stages:
     --clangtidy true --clangformat true --cppcheck true --gcovr true
   source ~/.cpprc
   echo -e "section_end:"`date +%s`":hidden_section\r\e[0Ksection_start:"`date +%s`":.setup_cpp\r\e[0K"
-  clang-tidy --version
-  cmake --version
-  ninja --version
+  clang --version
   gcc --version
+  cmake --version
+  echo "ninja --version" && ninja --version
 
 # with foldable multi-line commands
 .build:
   script:
     - *setup_cpp
     - echo -e "section_end:"`date +%s`":.build\r\e[0Ksection_start:"`date +%s`":hidden_section\r\e[0K configure"
-    - cmake -S . -B ./build -G Ninja -D CMAKE_BUILD_TYPE=Debug -D CMAKE_UNITY_BUILD=YES -D CMAKE_SKIP_INSTALL_RULES=YES
+    - cmake --preset unixlike-${COMPILER}-debug
+    - run-${COMPILER}-tidy -p out/build/unixlike-${COMPILER}-debug
     - echo -e "section_end:"`date +%s`":hidden_section\r\e[0Ksection_start:"`date +%s`":.build\r\e[0K"
-    - cmake --build ./build --config Debug
-    - cmake --build ./build --config Debug --target test
+    - ninja -C out/build/unixlike-${COMPILER}-debug
+    - ninja -C out/build/unixlike-${COMPILER}-debug test
     - gcovr .
 
 default:
@@ -49,10 +50,12 @@ test_linux_llvm:
   stage: test
   variables:
     compiler: llvm
+    COMPILER: clang
   extends: .build
 
 test_linux_gcc:
   stage: test
   variables:
     compiler: gcc
+    COMPILER: gcc
   extends: .build
