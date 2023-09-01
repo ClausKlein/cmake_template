@@ -36,7 +36,7 @@ stages:
     - *setup_cpp
     - echo -e "section_end:"`date +%s`":.build\r\e[0Ksection_start:"`date +%s`":hidden_section\r\e[0K configure"
     - cmake --preset unixlike-${COMPILER}-debug
-    - run-${COMPILER}-tidy -p out/build/unixlike-${COMPILER}-debug
+    - run-clang-tidy -p out/build/unixlike-${COMPILER}-debug
     - echo -e "section_end:"`date +%s`":hidden_section\r\e[0Ksection_start:"`date +%s`":.build\r\e[0K"
     - ninja -C out/build/unixlike-${COMPILER}-debug
     - ninja -C out/build/unixlike-${COMPILER}-debug test
