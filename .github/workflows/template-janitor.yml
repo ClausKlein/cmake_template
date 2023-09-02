@@ -129,7 +129,6 @@ jobs:
           envFile: '.github/constants.env'
 
 
-
       - name: Test simple configuration to make sure nothing broke
         run: |
           cmake -S . -B ./build -G "${{ matrix.generator }}" -DCMAKE_BUILD_TYPE:STRING=${{ matrix.build_type }} -D${{ env.NEW_SAFE_PROJECT }}_PACKAGING_MAINTAINER_MODE:BOOL=ON
@@ -147,7 +146,6 @@ jobs:
           pathspec_error_handling: exitImmediately
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
 
 
   template-rename:
