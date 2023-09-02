@@ -12,7 +12,12 @@
             "hidden": true,
             "generator": "Ninja",
             "binaryDir": "${sourceDir}/out/build/${presetName}",
-            "installDir": "${sourceDir}/out/install/${presetName}"
+            "installDir": "${sourceDir}/out/install/${presetName}",
+            "environment": {
+                "CMAKE_EXPORT_COMPILE_COMMANDS": "YES",
+                "CPM_USE_LOCAL_PACKAGES": "NO",
+                "CPM_SOURCE_CACHE": "$env{HOME}/.cache/CPM"
+            }
         },
         {
             "name": "conf-windows-common",

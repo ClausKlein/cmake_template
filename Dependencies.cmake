@@ -23,7 +23,7 @@ function(myproject_setup_dependencies)
   endif()
 
   if(NOT TARGET spdlog::spdlog)
-    # NOTE: you may find an installed version compiled with differrent options!
+    # NOTE: you may find an installed version compiled with different options!
     # TODO(CK) this does not work! cpmfindpackage(
     cpmaddpackage(
       NAME
