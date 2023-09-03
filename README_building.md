@@ -23,7 +23,7 @@ CMake uses the environment variables CC and CXX to decide which compiler to use.
 
 	- Temporarily (only for the current shell)
 
-		Run one of the followings in the terminal:
+		Run one of the following in the terminal:
 
 		- clang
 
@@ -50,7 +50,7 @@ CMake uses the environment variables CC and CXX to decide which compiler to use.
 
 	- Permanent:
 
-		Run one of the followings in PowerShell:
+		Run one of the following in PowerShell:
 
 		- Visual Studio generator and compiler (cl)
 
@@ -91,7 +91,7 @@ With Cmake directly:
 
     cmake -S . -B ./build
 
-Cmake will automatically create the `./build` folder if it does not exist, and it wil configure the project.
+Cmake will automatically create the `./build` folder if it does not exist, and it will configure the project.
 
 Instead, if you have CMake version 3.21+, you can use one of the configuration presets that are listed in the CmakePresets.json file.
 
