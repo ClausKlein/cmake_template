@@ -33,7 +33,8 @@ function(myproject_setup_dependencies)
   endif()
 
   if(NOT TARGET ftxui::screen)
-    cpmaddpackage("gh:ArthurSonzogni/FTXUI@5.0.0")
+    # see https://github.com/ArthurSonzogni/FTXUI/pull/738
+    cpmaddpackage("gh:ArthurSonzogni/FTXUI#dd6a5d371fd7a3e2937bb579955003c54b727233")
   endif()
 
   if(NOT TARGET tools::tools)
